@@ -1,10 +1,16 @@
 #include <iostream>
+
 #include"EDLib.h"
 #include "CED.h"
 #include <opencv2/core/utils/logger.hpp>
-int main() {
+
+int main(int argc, char *argv[]) {
     cv::utils::logging::setLogLevel(cv::utils::logging::LOG_LEVEL_SILENT);
-    std::string imgPath = "D:\\EDSF\\ellipse_data\\Random\\Images1\\bike_0075.jpg";
+    if (argc == 1)
+    {
+       throw std::runtime_error("Usage: ./esdf [image file path]");
+    }
+    std::string imgPath(argv[1]);
     cv::Mat img = cv::imread(imgPath);
     CED ced = CED(img);
     ced.run_CED();
