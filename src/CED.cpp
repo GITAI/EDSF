@@ -4,7 +4,8 @@
 #define M_PI 3.14159265358979323846
 
 CED::CED(cv::Mat srcImage)
-        :ED(srcImage, PREWITT_OPERATOR, 11, 3) {
+        // :ED(srcImage, PREWITT_OPERATOR, 11, 3, 1, 20, 1.0, true) {
+        :ED(srcImage, PREWITT_OPERATOR, 1, 0, 1, 20, 1.0, true) {
     imgRGB = srcImage.clone();
     std::copy(segmentPoints.begin(), segmentPoints.end(), std::back_inserter(edgeList));
 }
