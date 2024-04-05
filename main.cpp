@@ -8,6 +8,19 @@ int main() {
     cv::Mat img = cv::imread(imgPath);
     CED ced = CED(img);
     ced.run_CED();
+
+    cv::Mat ellArcSeg = ced.drawEdgeSegmentsAfterSplit();
+    cv::imshow("ellArcSeg", ellArcSeg);
+    cv::waitKey();
+
+    cv::Mat ellArc = ced.drawEllArc();
+    cv::imshow("ellArc", ellArc);
+    cv::waitKey();
+
+    cv::Mat ellMap = ced.drawEllipses(img);
+    cv::imshow("ellMap", ellMap);
+    cv::waitKey();
+
     cv::Mat ellMapCluster = ced.drawEllipsesAfterCluster(img);
     cv::imshow("ellMapCluster", ellMapCluster);
     cv::waitKey();
