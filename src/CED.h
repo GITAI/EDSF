@@ -35,7 +35,29 @@ public:
     };
 
 public:
-    CED(cv::Mat srcImage);
+    CED(cv::Mat _srcImage,
+        GradientOperator _op = PREWITT_OPERATOR,
+        int _gradThresh = 1,
+        int _anchorThresh = 0,
+        int _scanInterval = 1,
+        int _minPathLen = 20,
+        double _sigma = 1.0,
+        bool _sumFlag = true,
+        double _sharpAngle = 60,
+        double _minimum_edge_length = 100,
+        double _minimum_edge_score = 0.3,
+        double _th_lsr = 3,
+        double _th_dis = 3,
+        double _minimum_ellipse_score1 = 0.55,
+        double _minimum_ellipse_score2 = 0.35,
+        double _remain_score = 0.3,
+        double _inlier_dis = 1.5,
+        double _cluster_dis = 20,
+        int _sampleNum = 360,
+        int _radius = 3,
+        double _epsilon = 1.5,
+        int _threads = 8
+        );
     void run_CED();
     std::vector<cv::RotatedRect> getEllipses() { return  ellipseList;}
     std::vector<cv::RotatedRect> getEllipsesAfterCluster() { return  clustered_ellipse;}
@@ -69,25 +91,26 @@ public:
     bool canMerge(int id1, int id2);
 
 
-public:
-    float sharpAngle = 60;
-    double minimum_edge_length = 100;
-    double minimum_edge_score = 0.3;
-    double th_lsr = 3, th_dis = 3;
-    double minimum_ellipse_score1 = 0.55;
-    double minimum_ellipse_score2 = 0.35;
-    double remain_score = 0.3;
-    double inlier_dis = 1.5;
-    double cluster_dis = 20;
-    int sampleNum = 360, radius = 3;
-    double epsilon = 1.5;
-    int threads = 8;
-
 private:
     std::vector<std::vector<cv::Point>> edgeList;
     std::vector<std::vector<std::pair<int, int>>> segList;
     std::vector<std::vector<cv::Point>> ellArc;
     std::vector<std::vector<std::pair<int, int>>> ellArcSeg;
+
+    float sharpAngle;
+    double minimum_edge_length;
+    double minimum_edge_score;
+    double th_lsr;
+    double th_dis;
+    double minimum_ellipse_score1;
+    double minimum_ellipse_score2;
+    double remain_score;
+    double inlier_dis;
+    double cluster_dis;
+    int sampleNum;
+    int radius;
+    double epsilon;
+    int threads;
 
 public:
     std::vector<SetNode> setNodes;

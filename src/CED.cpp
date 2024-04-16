@@ -3,9 +3,45 @@
 #include "EV.h"
 #define M_PI 3.14159265358979323846
 
-CED::CED(cv::Mat srcImage)
-        // :ED(srcImage, PREWITT_OPERATOR, 11, 3, 1, 20, 1.0, true) {
-        :ED(srcImage, PREWITT_OPERATOR, 1, 0, 1, 20, 1.0, true) {
+CED::CED(cv::Mat _srcImage,
+         GradientOperator _op,
+         int _gradThresh,
+         int _anchorThresh,
+         int _scanInterval,
+         int _minPathLen,
+         double _sigma,
+         bool _sumFlag,
+         double _sharpAngle,
+         double _minimum_edge_length,
+         double _minimum_edge_score,
+         double _th_lsr,
+         double _th_dis,
+         double _minimum_ellipse_score1,
+         double _minimum_ellipse_score2,
+         double _remain_score,
+         double _inlier_dis,
+         double _cluster_dis,
+         int _sampleNum,
+         int _radius,
+         double _epsilon,
+         int _threads):
+      ED(_srcImage, _op, _gradThresh, _anchorThresh, _scanInterval, _minPathLen,
+         _sigma, _sumFlag)
+{
+    sharpAngle = _sharpAngle;
+    minimum_edge_length = _minimum_edge_length;
+    minimum_edge_score = _minimum_edge_score;
+    th_lsr = _th_lsr;
+    th_dis = _th_dis;
+    minimum_ellipse_score1 = _minimum_ellipse_score1;
+    minimum_ellipse_score2 = _minimum_ellipse_score2;
+    remain_score = _remain_score;
+    inlier_dis = _inlier_dis;
+    cluster_dis = _cluster_dis;
+    sampleNum = _sampleNum;
+    radius = _radius;
+    epsilon = _epsilon;
+    threads = _threads;
     imgRGB = srcImage.clone();
     std::copy(segmentPoints.begin(), segmentPoints.end(), std::back_inserter(edgeList));
 }
