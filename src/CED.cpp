@@ -42,7 +42,6 @@ CED::CED(cv::Mat _srcImage,
     radius = _radius;
     epsilon = _epsilon;
     threads = _threads;
-    imgRGB = srcImage.clone();
     std::copy(segmentPoints.begin(), segmentPoints.end(), std::back_inserter(edgeList));
 }
 
