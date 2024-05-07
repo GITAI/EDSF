@@ -9,6 +9,7 @@ CED::CED(cv::Mat _srcImage,
          int _anchorThresh,
          int _scanInterval,
          int _minPathLen,
+         int _kSize,
          double _sigma,
          bool _sumFlag,
          double _sharpAngle,
@@ -26,7 +27,7 @@ CED::CED(cv::Mat _srcImage,
          double _epsilon,
          int _threads):
       ED(_srcImage, _op, _gradThresh, _anchorThresh, _scanInterval, _minPathLen,
-         _sigma, _sumFlag)
+         _kSize, _sigma, _sumFlag)
 {
     sharpAngle = _sharpAngle;
     minimum_edge_length = _minimum_edge_length;

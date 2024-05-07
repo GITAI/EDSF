@@ -41,6 +41,7 @@ public:
         int _anchorThresh = 0,
         int _scanInterval = 1,
         int _minPathLen = 20,
+        int _kSize = 5,
         double _sigma = 1.0,
         bool _sumFlag = true,
         double _sharpAngle = 60,
