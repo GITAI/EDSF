@@ -59,10 +59,12 @@ public:
         int _threads = 8
         );
     void run_CED();
+    std::vector<std::vector<cv::Point>> getEdges() {return edgeList;}
+    std::vector<std::vector<std::pair<int, int>>> getEdgeSegments() {return segList;}
+    std::vector<std::vector<cv::Point>> getArcs() {return ellArc;}
+    std::vector<std::vector<std::pair<int, int>>> getArcSegments() {return ellArcSeg;}
     std::vector<cv::RotatedRect> getEllipses() { return  ellipseList;}
     std::vector<cv::RotatedRect> getEllipsesAfterCluster() { return  clustered_ellipse;}
-    std::vector<std::vector<cv::Point>> getArcs() {return ellArc;}
-    std::vector<std::vector<std::pair<int, int>>> getEdgeSegments() {return ellArcSeg;}
 
 //    draw
     cv::Mat drawEdgeContours();
