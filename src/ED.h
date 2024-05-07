@@ -19,9 +19,9 @@
 * By using this library you are implicitly assumed to have accepted all of the above statements,
 * and accept to cite the following papers:
 *
-* [1] C. Topal and C. Akinlar, 揈dge Drawing: A Combined Real-Time Edge and Segment Detector,?*     Journal of Visual Communication and Image Representation, 23(6), 862-872, DOI: 10.1016/j.jvcir.2012.05.004 (2012).
+* [1] C. Topal and C. Akinlar, Edge Drawing: A Combined Real-Time Edge and Segment Detector*     Journal of Visual Communication and Image Representation, 23(6), 862-872, DOI: 10.1016/j.jvcir.2012.05.004 (2012).
 *
-* [2] C. Akinlar and C. Topal, 揈DPF: A Real-time Parameter-free Edge Segment Detector with a False Detection Control,?*     International Journal of Pattern Recognition and Artificial Intelligence, 26(1), DOI: 10.1142/S0218001412550026 (2012).
+* [2] C. Akinlar and C. Topal, EDPF: A Real-time Parameter-free Edge Segment Detector with a False Detection Control*     International Journal of Pattern Recognition and Artificial Intelligence, 26(1), DOI: 10.1142/S0218001412550026 (2012).
 **************************************************************************************************************/
 #pragma once
 #ifndef _ED_
@@ -62,14 +62,14 @@ struct Chain {
 
 class ED {
 
-public://ED 函数重载，输入参数类型不同
-	ED(cv::Mat _srcImage, GradientOperator _op = PREWITT_OPERATOR, int _gradThresh = 20, int _anchorThresh = 0, int _scanInterval = 1, int _minPathLen = 20, double _sigma = 1.0, bool _sumFlag = true);
+public:
+	ED(cv::Mat _srcImage, GradientOperator _op = PREWITT_OPERATOR, int _gradThresh = 20, int _anchorThresh = 0, int _scanInterval = 1, int _minPathLen = 20, int _kSize = 5, double _sigma = 1.0, bool _sumFlag = true);
 	ED(const ED& cpyObj);
 	ED(short* gradImg, uchar* dirImg, int _width, int _height, int _gradThresh, int _anchorThresh, int _scanInterval = 1, int _minPathLen = 10, bool selectStableAnchors = true);
 	ED(EDColor& cpyObj);
-	ED();//上面都是构造函数
+	ED();
 
-	cv::Mat getEdgeImage();//成员函数
+	cv::Mat getEdgeImage();
 	cv::Mat getAnchorImage();
 	cv::Mat getSmoothImage();
 	cv::Mat getGradImage();
@@ -87,7 +87,7 @@ protected:
 	int width; // width of source image
 	int height; // height of source image
 	uchar* srcImg;
-	std::vector<std::vector< cv::Point> > segmentPoints;//2维数组
+	std::vector<std::vector< cv::Point> > segmentPoints;
 	double sigma; // Gaussian sigma
 	cv::Mat smoothImage;
 	uchar* edgeImg; // pointer to edge image data

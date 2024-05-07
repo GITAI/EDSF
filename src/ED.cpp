@@ -6,15 +6,16 @@ using namespace cv;
 using namespace std;
 
 
-ED::ED(Mat _srcImage, GradientOperator _op, int _gradThresh, int _anchorThresh, int _scanInterval, int _minPathLen, double _sigma, bool _sumFlag)
+ED::ED(Mat _srcImage, GradientOperator _op, int _gradThresh, int _anchorThresh, int _scanInterval, int _minPathLen, int _kSize, double _sigma, bool _sumFlag)
 {
 	// Check parameters for sanity
 	if (_gradThresh < 1) _gradThresh = 1;
 	if (_anchorThresh < 0) _anchorThresh = 0;
 	if (_sigma < 1.0) _sigma = 1.0;
+    if (_kSize < 1) _kSize = 1;
+    else if (_kSize % 2 == 0) _kSize = _kSize + 1;
     segmentPoints.reserve(50);
     cvtColor(_srcImage, _srcImage, COLOR_BGR2GRAY);
-    GaussianBlur(_srcImage, _srcImage, Size(3,3),1.0);
 
 	srcImage = _srcImage;
 
@@ -41,10 +42,7 @@ ED::ED(Mat _srcImage, GradientOperator _op, int _gradThresh, int _anchorThresh, 
 	//// Detect Edges By Edge Drawing Algorithm  ////
 
 	/*------------ SMOOTH THE IMAGE BY A GAUSSIAN KERNEL -------------------*/
-	if (sigma == 1.0)
-		GaussianBlur(srcImage, smoothImage, Size(5, 5), sigma);
-	else
-		GaussianBlur(srcImage, smoothImage, Size(), sigma); // calculate kernel from sigma
+	GaussianBlur(srcImage, smoothImage, Size(_kSize, _kSize), sigma);
 
 	// Assign Pointers from Mat's data
 	smoothImg = smoothImage.data;
