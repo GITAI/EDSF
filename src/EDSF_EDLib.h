@@ -1,9 +1,9 @@
 #pragma once
-#ifndef _EDLib_
-#define _EDLib_
+#ifndef _EDSF_EDLib_
+#define _EDSF_EDLib_
 
-#include "ED.h"
-#include "EDPF.h"
-#include "EDColor.h"
+#include "EDSF_ED.h"
+#include "EDSF_EDPF.h"
+#include "EDSF_EDColor.h"
 
-#endif // !_EDLib_
+#endif // !_EDSF_EDLib_
