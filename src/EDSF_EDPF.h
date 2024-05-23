@@ -24,10 +24,10 @@
 * [2] C. Akinlar and C. Topal, “EDPF: A Real-time Parameter-free Edge Segment Detector with a False Detection Control,?*     International Journal of Pattern Recognition and Artificial Intelligence, 26(1), DOI: 10.1142/S0218001412550026 (2012).
 **************************************************************************************************************/
 #pragma once
-#ifndef  _EDPF_
-#define _EDPF_
+#ifndef  _EDSF_EDPF_
+#define _EDSF_EDPF_
 
-#include "ED.h"
+#include "EDSF_ED.h"
 
 #define MAX_GRAD_VALUE 128*256
 #define EPSILON 1.0

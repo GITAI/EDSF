@@ -24,11 +24,11 @@
 * [2] C. Akinlar and C. Topal, EDPF: A Real-time Parameter-free Edge Segment Detector with a False Detection Control*     International Journal of Pattern Recognition and Artificial Intelligence, 26(1), DOI: 10.1142/S0218001412550026 (2012).
 **************************************************************************************************************/
 #pragma once
-#ifndef _ED_
-#define _ED_
+#ifndef _EDSF_ED_
+#define _EDSF_ED_
 
 #include <opencv2/opencv.hpp>
-#include "EDColor.h"
+#include "EDSF_EDColor.h"
 
 /// Special defines
 #define EDGE_VERTICAL   1

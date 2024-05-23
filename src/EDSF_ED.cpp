@@ -1,5 +1,5 @@
-#include "ED.h"
-#include "EDColor.h"
+#include "EDSF_ED.h"
+#include "EDSF_EDColor.h"
 #include <fstream>
 
 using namespace cv;

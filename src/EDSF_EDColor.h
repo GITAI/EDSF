@@ -28,8 +28,8 @@
 *     submitted to the Journal of Visual Communication and Image Representation (2017).
 **************************************************************************************************************/
 #pragma once
-#ifndef  _EDColor_
-#define _EDColor_
+#ifndef  _EDSF_EDColor_
+#define _EDSF_EDColor_
 
 #include <opencv2/opencv.hpp>
 
@@ -104,6 +104,6 @@ private:
 	static void InitColorEDLib();
 };
 
-#endif // ! _EDColor_
+#endif // ! _EDSF_EDColor_
 
 
