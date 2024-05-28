@@ -5,8 +5,7 @@
 #ifndef CYLINDERPOSETRACKING_CED_H
 #define CYLINDERPOSETRACKING_CED_H
 
-#include "EDSF_ED.h"
-
+#include <ED.h>
 
 
 class CED : public ED {
