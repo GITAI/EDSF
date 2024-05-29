@@ -3,6 +3,7 @@
 //
 
 #include "TestTools.h"
+
 bool TestOverlap(const cv::Mat1b& gt, const cv::Mat1b& test, float th) {
     float fAND = float(cv::countNonZero(gt & test));
     float fOR = float(cv::countNonZero(gt | test));
